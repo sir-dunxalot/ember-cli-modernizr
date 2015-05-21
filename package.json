@@ -42,7 +42,7 @@
     "customizr": "^1.0.0-alpha",
     "ember-cli-babel": "^5.0.0",
     "modernizr": "^3.0.0-alpha.4",
-    "deepmerge": "^0.2.10",
+    "deepmerge": "^0.2.10"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
