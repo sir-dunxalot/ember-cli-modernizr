@@ -22,5 +22,4 @@ install:
 # for tests, as if it was passed to the Ember addon
 
 script:
-  - ember build
   - npm test
