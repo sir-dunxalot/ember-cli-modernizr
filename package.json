@@ -9,7 +9,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember try:testall"
+    "test": "node tests/runner"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
     "chai": "^2.3.0",
+    "chai-fs": "git://github.com/sir-dunxalot/chai-fs.git#master",
     "ember-cli": "0.2.5",
     "ember-cli-app-version": "0.3.3",
     "ember-cli-content-security-policy": "0.4.0",
@@ -37,6 +38,7 @@
     "ember-disable-proxy-controllers": "^0.7.0",
     "ember-export-application-global": "^1.0.2",
     "ember-try": "0.0.4",
+    "glob": "^5.0.7",
     "mocha": "^2.2.5",
     "mocha-jshint": "^2.2.3"
   },
