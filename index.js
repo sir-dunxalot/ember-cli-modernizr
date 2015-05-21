@@ -38,6 +38,6 @@ module.exports = {
   },
 
   postprocessTree: function(type, workingTree) {
-    return filterFiles(workingTree, type);
+    return filterFiles(workingTree, type, this.options);
   },
 };
