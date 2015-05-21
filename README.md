@@ -1,25 +1,27 @@
 # Ember-cli-modernizr
 
-This README outlines the details of collaborating on this Ember addon.
+This Ember addon decreases the size of your `vendor.js` file by parsing your application for Modernizr references and creating a small, custom [Modernizr](http://modernizr.com/) build.
+
+- In development, Modernizr's default development source will be automatically added to your `vendor.js` file
+- In production, when `ember build` is ran, your JS and CSS will be parsed for all Modernizr references before the smallest possible custom Modernizr production build is automatically added to your `vendor.js` file
+- Full build customization where needed
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```
+ember install ember-cli-modernizr
+```
 
-## Running
+## Customization
 
 * `ember server`
 * Visit your app at http://localhost:4200.
 
-## Running Tests
+## Development
 
-* `ember test`
-* `ember test --server`
+If you have an issue or feature request please [open an issue](https://github.com/sir-dunxalot/ember-cli-modernizr/issues/new) or submit a PR.
 
-## Building
+The test suite can be ran as follows:
 
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+- `ember test`
+- `ember test --server`

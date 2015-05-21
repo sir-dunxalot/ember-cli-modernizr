@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-modernizr",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Parses your Ember CLI app for Modernizr references and creates the smallest possible production build",
   "directories": {
     "doc": "doc",
     "test": "tests"
