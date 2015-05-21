@@ -40,6 +40,7 @@
   "dependencies": {
     "broccoli-filter": "^0.1.14",
     "customizr": "^1.0.0-alpha",
+    "deepmerge": "^0.2.10",
     "ember-cli-babel": "^5.0.0"
   },
   "ember-addon": {

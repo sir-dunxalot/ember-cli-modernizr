@@ -1,6 +1,10 @@
 var defaultFor = require('./lib/utils/default-for');
 var filterFiles = require('./lib/filter-files');
+var merge = require('deepmerge');
 var modernizr = require('modernizr');
+
+/* jshint node: true */
+'use strict';
 
 var defaultOptions = {
   customTests: [],
@@ -30,9 +34,6 @@ var defaultOptions = {
   tests: [], // Tests you want to implicitly include
 };
 
-/* jshint node: true */
-'use strict';
-
 module.exports = {
   name: 'ember-cli-modernizr',
   inDevelopment: false,
@@ -42,12 +43,13 @@ module.exports = {
     var environment = app.env;
     var inDevelopment = environment === 'development';
     var passedOptions = defaultFor(app.options.modernizr, {});
-    var deveplomentPath;
+    var developmentPath;
 
     this._super.included(app);
+    this.options = merge(defaultOptions, passedOptions);
 
     if (inDevelopment) {
-      deveplomentPath = defaultFor(
+      developmentPath = defaultFor(
         passedOptions.developmentPath,
         app.bowerDirectory + '/modernizr/modernizr.js'
       );
