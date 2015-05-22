@@ -10,16 +10,14 @@ postMessage
 Should return false for:
 
 audio
-rgba
 geolocation
+rgba
 cssgradients
 sessionStorage
 doesNotExist
 */
 
 (function() {
-
-  /* Application view */
 
   define('dummy/app/views/application', ['exports', 'ember'], function (exports, Ember) {
     exports['default'] = Ember.View.extend({
@@ -28,7 +26,7 @@ doesNotExist
 
       checkForSupport: function() {
         if (Modernizr.csstransitions) {
-          this.coolCss3Method();
+          this.rgba();
         } else {
           this.fallback();
         }
@@ -45,8 +43,6 @@ doesNotExist
       this.route('dashboard');
       this.route('creator');
     });
-
-    /* Modernizr.rgba - Should not pick up */
 
     if (Modernizr.history && Modernizr.hashchange) {
       Router.location = 'hash';

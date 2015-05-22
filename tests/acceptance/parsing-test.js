@@ -7,6 +7,9 @@ var root = process.cwd();
 
 var assert = chai.assert;
 
+// Need a test for html5 shim settings
+// Need a test for prefixes
+
 describe('Acceptance - Parsing', function() {
 
   beforeEach(function() {
