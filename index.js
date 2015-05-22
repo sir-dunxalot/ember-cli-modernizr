@@ -7,8 +7,6 @@ var modernizr = require('modernizr');
 /* jshint node: true */
 'use strict';
 
-
-
 module.exports = {
   name: 'ember-cli-modernizr',
   inDevelopment: false,
@@ -38,6 +36,6 @@ module.exports = {
   },
 
   postprocessTree: function(type, workingTree) {
-    return filterFiles(workingTree, type, this.options);
+    return filterFiles(workingTree, this.options, type);
   },
 };
