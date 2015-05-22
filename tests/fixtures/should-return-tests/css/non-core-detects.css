@@ -1,0 +1,33 @@
+/*
+Should return true for the following:
+
+filesystem
+cors
+contentsecuritypolicy
+object-fit
+datauri
+json
+quotamanagement
+dataworkers
+*/
+
+.filesystem .header {
+  background: red;
+}
+
+.cors .nav {
+  color: yellow;
+}
+
+.no-contentsecuritypolicy {
+  height: 1px;
+}
+
+.no-object-fit {
+  width: 0;
+}
+
+.no-userdata.datauri,
+.no-quotamanagement.no-dataworkers {
+  color: green;
+}
