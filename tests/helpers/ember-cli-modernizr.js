@@ -25,6 +25,8 @@ module.exports = {
 
   module: emberCliModernizr,
 
+  currentFixturesTree: null,
+
   /**
   Builds the assets to the dist file using emberCliModernizr
   options set (like the developer would do in the Brocfile).
@@ -35,6 +37,14 @@ module.exports = {
   buildWithOptions: function(options, environment) {
     this.resetDefaultOptions();
     this.setOptions(options, environment);
+
+    /* By default, we want all the fixtures */
+
+    if (options && options.tree) {
+      this.currentFixturesTree = options.tree;
+    } else {
+      this.currentFixturesTree = 'tests/fixtures';
+    }
 
     this.builder = new broccoli.Builder(this.parseTree());
 
@@ -53,9 +63,9 @@ module.exports = {
 
   parseTree: function(type, tree) {
     type = defaultFor(type, 'all');
-    tree = defaultFor(tree, 'tests/fixtures');
+    tree = defaultFor(tree, this.currentFixturesTree);
 
-    return emberCliModernizr.postprocessTree('all', 'tests/fixtures');
+    return emberCliModernizr.postprocessTree(type, tree);
   },
 
   /**

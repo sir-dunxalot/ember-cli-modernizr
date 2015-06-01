@@ -5,6 +5,9 @@ var root = process.cwd();
 /* Test helpers */
 
 var assert = chai.assert;
+var assertFileContains = require('../helpers/assert/file-contains');
+var assertFileExists = require('../helpers/assert/file-exists');
+var assertFileHasContent = require('../helpers/assert/file-has-content');
 
 describe('Acceptance - Extensibility', function() {
 
