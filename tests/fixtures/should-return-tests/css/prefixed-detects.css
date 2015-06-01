@@ -1,0 +1,37 @@
+/*
+Should return true for the following:
+
+csstransitions
+history
+scriptasync
+mediaqueries
+transforms3d
+gamepads
+
+Not:
+
+someotherthing
+geolocation
+borderimage
+*/
+
+.mod-csstransitions {
+  background: red;
+}
+
+.mod-history .mod-someotherthing {
+  color: yellow;
+}
+
+.no-mod-scriptasync,
+.no-mod-mediaqueries {
+  height: 1px;
+}
+
+.geolocation.mod-transforms3d {
+  color: green;
+}
+
+.no-mod-gamepads.borderimage {
+  color: yellow;
+}

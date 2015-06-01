@@ -1,0 +1,5 @@
+(function() {
+
+  Modernizr.testAllProps('boxSizing');
+
+});

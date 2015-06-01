@@ -1,0 +1,33 @@
+/*
+Should return true for the following:
+
+csstransitions
+history
+cssgradients
+touch
+geolocation
+webgl
+flexbox
+borderimage
+*/
+
+.csstransitions {
+  background: red;
+}
+
+.history .nav {
+  color: yellow;
+}
+
+.no-cssgradients,
+.no-touch {
+  height: 1px;
+}
+
+.geolocation.webgl {
+  color: green;
+}
+
+.no-flexbox.borderimage {
+  color: yellow;
+}

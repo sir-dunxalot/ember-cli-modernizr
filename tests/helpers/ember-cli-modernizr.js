@@ -52,9 +52,9 @@ module.exports = {
 
   parseTree: function(type, tree) {
     type = defaultOptions(type, 'all');
-    tree = defaultOptions(tree, 'dist');
+    tree = defaultOptions(tree, 'tests/fixtures');
 
-    return emberCliModernizr.postprocessTree('all', 'dist');
+    return emberCliModernizr.postprocessTree('all', 'tests/fixtures');
   },
 
   /**
