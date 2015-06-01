@@ -55,9 +55,10 @@
   "dependencies": {
     "broccoli-filter": "^0.1.14",
     "customizr": "^1.0.0-alpha",
+    "deepmerge": "^0.2.10",
     "ember-cli-babel": "^5.0.0",
     "modernizr": "^3.0.0-alpha.4",
-    "deepmerge": "^0.2.10"
+    "promised-io": "^0.3.5"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
