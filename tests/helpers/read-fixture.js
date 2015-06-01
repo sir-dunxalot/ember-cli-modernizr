@@ -1,10 +1,9 @@
 var fs = require('fs');
 var path = require('path');
 
-function readFixture(srcDir, fixturePath) {
-  var srcPath = path.join(srcDir, fixturePath);
-
-  console.log('PATH:', srcPath);
+function readFixture(fixturePath) {
+  var srcDir = process.cwd();
+  var srcPath = path.join(srcDir, '/tests/fixtures/', fixturePath);
 
   return fs.readFileSync(srcPath, {
     encoding: 'utf8'
