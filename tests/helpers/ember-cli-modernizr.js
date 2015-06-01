@@ -1,4 +1,5 @@
 var broccoli = require('broccoli');
+var defaultFor = require('../../lib/utils/default-for');
 var defaultOptions = require('../../lib/default-options');
 var emberCliModernizr = require('../..'); // index.js
 
@@ -35,7 +36,7 @@ module.exports = {
     this.resetDefaultOptions();
     this.setOptions(options, environment);
 
-    this.builder = new broccoli.Builder(this.concatTree());
+    this.builder = new broccoli.Builder(this.parseTree());
 
     return this.builder.build();
   },
@@ -51,8 +52,8 @@ module.exports = {
   */
 
   parseTree: function(type, tree) {
-    type = defaultOptions(type, 'all');
-    tree = defaultOptions(tree, 'tests/fixtures');
+    type = defaultFor(type, 'all');
+    tree = defaultFor(tree, 'tests/fixtures');
 
     return emberCliModernizr.postprocessTree('all', 'tests/fixtures');
   },
@@ -86,8 +87,7 @@ module.exports = {
     emberCliModernizr.included({
       env: environment,
       options: {
-        emberCliConcat: options,
-        outputPaths: paths.outputPaths
+        emberCliConcat: options
       }
     });
   },

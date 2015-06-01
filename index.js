@@ -18,7 +18,6 @@ module.exports = {
     var passedOptions = defaultFor(app.options.modernizr, {});
     var developmentPath;
 
-    this._super.included(app);
     this.options = merge(defaultOptions, passedOptions);
 
     if (inDevelopment) {
@@ -27,7 +26,7 @@ module.exports = {
         app.bowerDirectory + '/modernizr/modernizr.js'
       );
 
-      app.import(developmentPath);
+      // app.import(developmentPath); // TODO
     } else {
 
     }

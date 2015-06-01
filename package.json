@@ -21,6 +21,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "broccoli": "^0.16.3",
     "broccoli-asset-rev": "^2.0.2",
     "chai": "^2.3.0",
     "chai-fs": "git://github.com/sir-dunxalot/chai-fs.git#master",
