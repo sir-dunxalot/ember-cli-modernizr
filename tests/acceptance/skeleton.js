@@ -27,7 +27,7 @@ describe('Acceptance - Parsing', function() {
     return emberCliModernizr.buildWithOptions().then(function(results) {
       var directory = results.directory;
 
-      console.log(readFixture(directory, '/extensibility/prefixes.js'));
+      console.log(readFixture('extensibility/prefixes.js'));
 
       /* Run assertions on files in tmp directory here */
     });
