@@ -1,12 +1,12 @@
 var chai = require('chai');
-var readFixture = require('../helpers/read-fixture');
+var readFixture = require('../../helpers/read-fixture');
 var root = process.cwd();
 
 /* Test helpers */
 
 var assert = chai.assert;
 
-describe('Acceptance - Extensibility', function() {
+describe('Acceptance - Extras', function() {
 
   beforeEach(function() {
     process.chdir(root);

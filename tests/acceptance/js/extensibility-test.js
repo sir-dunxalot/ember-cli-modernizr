@@ -1,5 +1,5 @@
 var chai = require('chai');
-var readFixture = require('../helpers/read-fixture');
+var readFixture = require('../../helpers/read-fixture');
 var root = process.cwd();
 
 /* Test helpers */
