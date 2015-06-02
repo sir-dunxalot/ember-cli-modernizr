@@ -1,13 +1,7 @@
-var chai = require('chai');
-var readFixture = require('../../helpers/read-fixture');
+var emberCliModernizr = require('../helpers/ember-cli-modernizr');
+var shouldBuildWith = require('../../helpers/should/build-with');
+var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
-
-/* Test helpers */
-
-var assert = chai.assert;
-var assertFileContains = require('../helpers/assert/file-contains');
-var assertFileExists = require('../helpers/assert/file-exists');
-var assertFileHasContent = require('../helpers/assert/file-has-content');
 
 describe('Acceptance - Extensibility', function() {
 
@@ -15,35 +9,57 @@ describe('Acceptance - Extensibility', function() {
     process.chdir(root);
   });
 
+  afterEach(function() {
+    if (emberCliModernizr.builder) {
+      emberCliModernizr.builder.cleanup();
+    }
+  });
+
   it('detects multiple Modernizr.addTest methods', function() {
-    var content = readFixture('extensibility/add-test-multiple.js');
+    shouldDetect('extensibility/add-test-multiple.js', ['addTest']);
   });
 
   it('detects a single Modernizr.addTest method', function() {
-    var content = readFixture('extensibility/add-test-single.js');
+    shouldDetect('extensibility/add-test-single.js', ['addTest']);
   });
 
   it('detects the Modernizr._domPrefixes API', function() {
-    var content = readFixture('extensibility/dom-prefixes.js');
+    shouldDetect('extensibility/dom-prefixes.js', ['_domPrefixes']);
   });
 
   it('detects the Modernizr.hasEvent API', function() {
-    var content = readFixture('extensibility/has-event.js');
+    shouldDetect('extensibility/has-event.js', ['hasEvent']);
   });
 
   it('detects the Modernizr._prefixes API', function() {
-    var content = readFixture('extensibility/dom-prefixes.js');
+    shouldDetect('extensibility/prefixes.js', ['_prefixes']);
   });
 
   it('detects the Modernizr.testAllProps API', function() {
-    var content = readFixture('extensibility/test-all-props.js');
+    shouldDetect('extensibility/test-all-props.js', ['testAllProps']);
   });
 
   it('detects the Modernizr.testProp API', function() {
-    var content = readFixture('extensibility/test-prop.js');
+    shouldDetect('extensibility/test-prop.js', ['testProp']);
   });
 
   it('detects the Modernizr.testStyles API', function() {
-    var content = readFixture('extensibility/test-styles.js');
+    shouldDetect('extensibility/test-styles.js', ['testStyles']);
+  });
+
+  it('can build a Modernizr file with the correct extensibility detections', function() {
+    return emberCliModernizr.buildWithOptions({
+      tree: 'tests/fixtures/extensibility'
+    }).then(function(results) {
+      shouldBuildWith(directory, [
+        'addTest',
+        '_domPrefixes',
+        'hasEvent',
+        '_prefixes',
+        'testAllProps',
+        'testProp',
+        'testStyles',
+      ]);
+    });
   });
 });

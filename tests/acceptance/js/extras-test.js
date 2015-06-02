@@ -1,14 +1,7 @@
-var chai = require('chai');
 var emberCliModernizr = require('../helpers/ember-cli-modernizr');
-var readFixture = require('../../helpers/read-fixture');
+var shouldBuildWith = require('../../helpers/should/build-with');
+var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
-
-/* Test helpers */
-
-var assert = chai.assert;
-var assertFileContains = require('../helpers/assert/file-contains');
-var assertFileExists = require('../helpers/assert/file-exists');
-var assertFileHasContent = require('../helpers/assert/file-has-content');
 
 describe('Acceptance - Extras', function() {
 
@@ -23,49 +16,34 @@ describe('Acceptance - Extras', function() {
   });
 
   it('detects the Modernizr.mq API', function() {
-    var content = readFixture('extras/media-queries.js');
+    shouldDetect('extras/media-queries.js', ['mq']);
   });
 
   it('detects a core Modernizr.load call', function() {
-    var content = readFixture('extras/core-load.js');
-    var shouldReturn = [
-      'test', // API
-      'geolocation',
-      'csstransitions'
-    ];
+    shouldDetect('extras/core-load.js',
+      ['load', 'geolocation', 'csstransitions']
+    );
   });
 
   it('detects a non-core Modernizr.load call', function() {
-    var content = readFixture('extras/non-core-load.js');
+    shouldDetect('extras/non-core-load.js',
+      ['load', 'cors', 'cssvhunit']
+    );
   });
 
   it('can build a Modernizr file with the correct extras', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/extras'
     }).then(function(results) {
-      var directory = results.directory;
-      var outputPath = 'path-to-modernizr.js';
-      var shouldFind = [
+      shouldBuildWith(directory, [
         'mq', // API
         'load', // API
         'geolocation', // Core
         'csstransitions', // Core
         'core', // Non-core
         'cssvhunit', // Non-core
-      ];
-
-      assertFileExists(directory, outputPath,
-        'The Modernizr file should be built');
-
-      shouldFind.forEach(function(methodName) {
-        assertFileContains({
-          directory: directory,
-          assetPath: outputPath,
-          content: 'Modernizr.' + methodName + ' = ',
-          message: 'The Modernizr file should contain Modernizr.' = methodName
-        });
-      });
-
+      ]);
     });
   });
+
 });
