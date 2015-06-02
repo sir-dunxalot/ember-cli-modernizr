@@ -15,23 +15,23 @@ describe('Acceptance - Extras', function() {
     }
   });
 
-  it('detects the Modernizr.mq API', function() {
+  it('should detect the Modernizr.mq API', function() {
     shouldDetect('extras/media-queries.js', ['mq']);
   });
 
-  it('detects a core Modernizr.load call', function() {
+  it('should detect a core Modernizr.load call', function() {
     shouldDetect('extras/core-load.js',
       ['load', 'geolocation', 'csstransitions']
     );
   });
 
-  it('detects a non-core Modernizr.load call', function() {
+  it('should detect a non-core Modernizr.load call', function() {
     shouldDetect('extras/non-core-load.js',
       ['load', 'cors', 'cssvhunit']
     );
   });
 
-  it('can build a Modernizr file with the correct extras', function() {
+  it('should build a Modernizr file with the correct extras', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/extras'
     }).then(function(results) {
