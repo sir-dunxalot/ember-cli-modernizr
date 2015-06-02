@@ -21,7 +21,7 @@ var nonCoreFeatures = [
   'inputtypes.time',
 ];
 
-describe('Acceptance - Should detect tests (JS)', function() {
+describe('Acceptance - Should detect features (JS)', function() {
 
   beforeEach(function() {
     process.chdir(root);

@@ -3,7 +3,7 @@ var shouldBuildWith = require('../../helpers/should/build-with');
 var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
 
-describe('Acceptance - Should not detect features (JS)', function() {
+describe('Acceptance - Should not return tests (CSS)', function() {
 
   beforeEach(function() {
     process.chdir(root);
@@ -19,17 +19,9 @@ describe('Acceptance - Should not detect features (JS)', function() {
     shouldDetect('should-not-detect/js/comments.js', []);
   });
 
-  it('should not detect features as method names', function() {
-    shouldDetect('should-not-detect/js/methods.js', []);
-  });
-
-  it('should detect features as property names or values', function() {
-    shouldDetect('should-not-detect/js/properties.js', []);
-  });
-
   it('should not build a Modernizr file when there are no detects', function() {
     return emberCliModernizr.buildWithOptions({
-      tree: 'tests/fixtures/should-not-detect/js'
+      tree: 'tests/fixtures/should-not-detect/css'
     }).then(function(results) {
       shouldBuildWith(directory, []);
     });
