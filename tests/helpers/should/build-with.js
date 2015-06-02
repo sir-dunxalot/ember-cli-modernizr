@@ -1,7 +1,6 @@
+var assertFileContains = require('../assert/file-contains');
 var assertFileDoesNotExist = require('../assert/file-does-not-exist');
-var chai = require('chai');
-var parseFixture = require('../parse-fixture');
-var assert = chai.assert;
+var assertFileExists = require('../assert/file-exists');
 
 /**
 Assert that the Modernizr file is built and contains the specified assertions. If no assertions are passed it will check the file does not exists (i.e. Modernizr found no references).
@@ -23,7 +22,7 @@ function buildWith(directory, expectedDetections) {
       assertFileContains({
         directory: directory,
         assetPath: outputPath,
-        content: 'Modernizr.' + methodName + ' = ',
+        content: 'Modernizr.' + methodName + ' = ', // TODO
         message: 'The built Modernizr file should contain Modernizr.' + methodName
       });
     });

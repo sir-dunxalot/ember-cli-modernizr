@@ -1,4 +1,4 @@
-var emberCliModernizr = require('../helpers/ember-cli-modernizr');
+var emberCliModernizr = require('../../helpers/ember-cli-modernizr');
 var shouldBuildWith = require('../../helpers/should/build-with');
 var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
@@ -30,7 +30,7 @@ var prefixedFeatures = [
   'gamepads',
 ];
 
-describe('Acceptance - Should return tests (CSS)', function() {
+describe('Acceptance - Should detect tests (CSS)', function() {
 
   beforeEach(function() {
     process.chdir(root);
@@ -43,16 +43,16 @@ describe('Acceptance - Should return tests (CSS)', function() {
   });
 
   it('should detect core features', function() {
-    shouldDetect('should-return-tests/css/core-detects.css', coreFeatures);
+    shouldDetect('should-detect/css/core-detects.css', coreFeatures);
   });
 
   it('should detect non-core features', function() {
-    shouldDetect('should-return-tests/css/non-core-detects.css', nonCoreFeatures);
+    shouldDetect('should-detect/css/non-core-detects.css', nonCoreFeatures);
   });
 
   it('should detect prefixed features', function() {
     // Should not find someotherthing, geolocation, and borderimage
-    shouldDetect('should-return-tests/css/prefixed-detects.css', prefixedFeatures);
+    shouldDetect('should-detect/css/prefixed-detects.css', prefixedFeatures);
   });
 
 
@@ -60,7 +60,7 @@ describe('Acceptance - Should return tests (CSS)', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-detect/css'
     }).then(function(results) {
-      shouldBuildWith(directory, coreFeatures.join(nonCoreFeatures));
+      shouldBuildWith(results.directory, coreFeatures.join(nonCoreFeatures));
     });
   });
 
@@ -71,7 +71,7 @@ describe('Acceptance - Should return tests (CSS)', function() {
         cssclassprefix: 'mod',
       }
     }).then(function(results) {
-      shouldBuildWith(directory, prefixedFeatures);
+      shouldBuildWith(results.directory, prefixedFeatures);
     });
   });
 });

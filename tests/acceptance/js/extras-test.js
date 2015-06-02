@@ -1,4 +1,4 @@
-var emberCliModernizr = require('../helpers/ember-cli-modernizr');
+var emberCliModernizr = require('../../helpers/ember-cli-modernizr');
 var shouldBuildWith = require('../../helpers/should/build-with');
 var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
