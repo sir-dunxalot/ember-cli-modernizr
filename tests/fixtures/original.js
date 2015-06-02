@@ -37,8 +37,8 @@ doesNotExist
     });
   });
 
-  define('dummy/app/route', ['exports', 'ember'], function (exports, Ember) {
-    var Router = Ember.Route.extend({
+  define('dummy/app/router', ['exports', 'ember'], function (exports, Ember) {
+    var Router = Ember.Router.extend(function() {
       this.route('index');
       this.route('dashboard');
       this.route('creator');
@@ -68,5 +68,5 @@ doesNotExist
       }
     });
   });
-  
+
 })();
