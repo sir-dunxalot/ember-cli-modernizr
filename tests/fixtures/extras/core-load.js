@@ -1,3 +1,10 @@
+/* Should return:
+
+Modernizr.test API
+Modernizr.geolocation
+Modernizr.csstransitions
+*/
+
 (function() {
 
   Modernizr.load({
