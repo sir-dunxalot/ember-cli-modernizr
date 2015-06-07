@@ -40,8 +40,7 @@
     "ember-export-application-global": "^1.0.2",
     "ember-try": "0.0.4",
     "glob": "^5.0.7",
-    "mocha": "^2.2.5",
-    "mocha-jshint": "^2.2.3"
+    "mocha": "^2.2.5"
   },
   "keywords": [
     "ember-addon",
@@ -58,7 +57,8 @@
     "deepmerge": "^0.2.10",
     "ember-cli-babel": "^5.0.0",
     "modernizr": "^3.0.0-alpha.4",
-    "promised-io": "^0.3.5"
+    "promised-io": "^0.3.5",
+    "strip-comments": "^0.3.2"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
