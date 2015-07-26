@@ -3,7 +3,7 @@ var shouldBuildWith = require('../../helpers/should/build-with');
 var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
 
-describe('Acceptance - Should not return tests (CSS)', function() {
+describe('Acceptance - Should not detect features (CSS)', function() {
 
   beforeEach(function() {
     process.chdir(root);

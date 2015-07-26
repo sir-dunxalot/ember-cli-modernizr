@@ -3,7 +3,7 @@ var parseFixture = require('../parse-fixture');
 var assert = chai.assert;
 
 function shouldDetect(fixturePath, expectedDetections, options) {
-  var detections = parseFixture(fixturePath, options);
+  var detections = parseFixture(fixturePath, options) || [];
   var expectedDetectionsLength = expectedDetections.length;
 
   console.log(detections);
