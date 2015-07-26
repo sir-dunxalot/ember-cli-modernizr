@@ -62,7 +62,6 @@ describe('Acceptance - Should detect tests (CSS)', function() {
     });
   });
 
-
   it('should build a Modernizr file with CSS detects', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-detect/css'
