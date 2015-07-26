@@ -8,12 +8,9 @@
         'audio',
         'csstransitions',
         'mod-csstransitions',
-        'Modernizr.boxsizing'
       ],
 
-      'Modernizr.boxsizing': null,
       something: 'no-csstransitions',
-      somethingElse: Modernizr.DoesNotExist
     });
   });
 

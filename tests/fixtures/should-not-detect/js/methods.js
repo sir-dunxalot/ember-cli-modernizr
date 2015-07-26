@@ -10,8 +10,6 @@
         this.csstransitions();
       },
 
-      'Modernizr.canvastext': Ember.K,
-      
       history: function() {
         this.cssanimations();
       }

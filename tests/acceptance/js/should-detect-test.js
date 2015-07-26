@@ -18,7 +18,7 @@ var nonCoreFeatures = [
   'battery',
   'cssmask',
   'boxsizing',
-  'inputtypes.time',
+  'inputtypes',
 ];
 
 describe('Acceptance - Should detect features (JS)', function() {

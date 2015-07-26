@@ -5,7 +5,7 @@ emoji
 battery
 cssmask
 boxsizing
-inputtypes.time
+inputtypes
 */
 
 (function() {
