@@ -1,4 +1,4 @@
-var createCssMap = require('./lib/create-css-map');
+var mergeTrees = require('broccoli-merge-trees');
 var defaultFor = require('./lib/utils/default-for');
 var defaultOptions = require('./lib/default-options');
 var filterFiles = require('./lib/filter-files');
@@ -19,9 +19,11 @@ module.exports = {
     var passedOptions = defaultFor(app.options.modernizr, {});
     var developmentPath;
 
-    /* Set app name for use writing file */
+    /* Set outputPaths for use writing file */
 
-    defaultOptions.appName = app.name;
+    defaultOptions.appOutputPaths = app.options.outputPaths;
+
+    /* Merge default options with user-specified options */
 
     this.options = merge(defaultOptions, passedOptions);
 
@@ -39,13 +41,17 @@ module.exports = {
     this.inDevelopment = inDevelopment;
   },
 
-  postprocessTree: function(type, workingTree) {
-    var files;
+  postprocessTree: function(type, tree) {
+    var filteredTree;
 
     if (type === 'all') {
-      return filterFiles(workingTree, this.options);
+      modernizrTree = filterFiles(tree, this.options);
+
+      return mergeTrees([tree, modernizrTree], {
+        overwrite: true
+      });
     } else {
-      return workingTree;
+      return tree;
     }
   },
 
