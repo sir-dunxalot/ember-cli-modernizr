@@ -15,7 +15,7 @@ module.exports = {
 
   contentFor: function(type) {
     if (type === 'body-footer') {
-      return '<script src="/assets/ember-cli-modernizr.js">';
+      return '<script src="/assets/ember-cli-modernizr.js"></script>';
     }
   },
 
