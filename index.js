@@ -36,9 +36,13 @@ module.exports = {
   },
 
   postprocessTree: function(type, workingTree) {
-    var filteredTree = filterFiles(workingTree, this.options);
+    var files;
 
-    return workingTree;
+    if (type === 'js' || type === 'css') {
+      return filterFiles(workingTree, this.options);
+    } else {
+      return workingTree;
+    }
   },
 
 };

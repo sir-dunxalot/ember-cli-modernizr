@@ -6,8 +6,6 @@ function shouldDetect(fixturePath, expectedDetections, options) {
   var detections = parseFixture(fixturePath, options) || [];
   var expectedDetectionsLength = expectedDetections.length;
 
-  console.log(detections);
-
   expectedDetections.forEach(function(feature) {
 
     assert.include(detections, feature,

@@ -21,7 +21,12 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName"
+    "currentRouteName",
+    "Modernizr",
+    "process",
+    "afterEach",
+    "beforeEach",
+    "module"
   ],
   "node": false,
   "browser": false,
