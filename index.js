@@ -1,8 +1,8 @@
-var mergeTrees = require('broccoli-merge-trees');
 var defaultFor = require('./lib/utils/default-for');
 var defaultOptions = require('./lib/default-options');
 var filterFiles = require('./lib/filter-files');
 var merge = require('deepmerge');
+var mergeTrees = require('broccoli-merge-trees');
 var modernizr = require('modernizr');
 
 /* jshint node: true */
@@ -12,6 +12,12 @@ module.exports = {
   name: 'ember-cli-modernizr',
   inDevelopment: false,
   options: null,
+
+  contentFor: function(type) {
+    if (type === 'body-footer') {
+      return '<script src="/assets/ember-cli-modernizr.js">';
+    }
+  },
 
   included: function(app) {
     var environment = app.env;
