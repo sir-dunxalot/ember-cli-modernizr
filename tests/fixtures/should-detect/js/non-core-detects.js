@@ -18,7 +18,7 @@ inputtypes
     };
 
     exports['default'] = Ember.View.extend({
-      csstransitions: Modernizr['battery'],
+      csstransitions: Modernizr['batteryapi'],
       someProp: Modernizr.cssmask,
 
       canDoHistory: Ember.observer('lastchild', function() {
