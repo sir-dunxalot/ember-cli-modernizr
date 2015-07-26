@@ -17,6 +17,14 @@ ember install ember-cli-modernizr
 * `ember server`
 * Visit your app at http://localhost:4200.
 
+## TODOS
+
+Would love help with these:
+
+- Automatically adding `assets/ember-cli-modernizr.js` to `assets/vendor.js`
+- Minifying the Modernizr output
+- Retrieving configAll from the Modernizr namespace
+
 ## Development
 
 If you have an issue or feature request please [open an issue](https://github.com/sir-dunxalot/ember-cli-modernizr/issues/new) or submit a PR.

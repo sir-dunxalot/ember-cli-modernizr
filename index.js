@@ -11,11 +11,17 @@ var modernizr = require('modernizr');
 module.exports = {
   name: 'ember-cli-modernizr',
   inDevelopment: false,
-  options: null,
+  modernizrConfig: null,
 
   contentFor: function(type) {
+    var modernizrConfig, outputDir, outputFileName;
+
     if (type === 'body-footer') {
-      return '<script src="/assets/ember-cli-modernizr.js"></script>';
+      modernizrConfig = this.modernizrConfig;
+      outputDir = modernizrConfig.outputDir;
+      outputFileName = modernizrConfig.outputFileName;
+
+      return '<script src="/' + outputDir + '/' + outputFileName + '.js"></script>';
     }
   },
 
@@ -31,7 +37,7 @@ module.exports = {
 
     /* Merge default options with user-specified options */
 
-    this.options = merge(defaultOptions, passedOptions);
+    this.modernizrConfig = merge(defaultOptions, passedOptions);
 
     if (inDevelopment) {
       developmentPath = defaultFor(
@@ -51,7 +57,7 @@ module.exports = {
     var filteredTree;
 
     if (type === 'all') {
-      modernizrTree = filterFiles(tree, this.options);
+      modernizrTree = filterFiles(tree, this.modernizrConfig);
 
       return mergeTrees([tree, modernizrTree], {
         overwrite: true

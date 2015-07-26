@@ -12,7 +12,7 @@ borderimage
 */
 
 .csstransitions {
-  background: red;
+  background: transparent;
 }
 
 .history .nav {
@@ -25,9 +25,9 @@ borderimage
 }
 
 .geolocation.webgl {
-  color: green;
+  color: black;
 }
 
 .no-flexbox.borderimage {
-  color: yellow;
+  color: black;
 }
