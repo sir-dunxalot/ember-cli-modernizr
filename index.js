@@ -19,6 +19,10 @@ module.exports = {
     var passedOptions = defaultFor(app.options.modernizr, {});
     var developmentPath;
 
+    /* Set app name for use writing file */
+
+    defaultOptions.appName = app.name;
+
     this.options = merge(defaultOptions, passedOptions);
 
     if (inDevelopment) {
