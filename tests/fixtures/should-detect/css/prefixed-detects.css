@@ -7,7 +7,7 @@ csstransitions
 history
 scriptasync
 mediaqueries
-transforms3d
+csstransforms3d
 gamepads
 
 Not:
@@ -25,15 +25,15 @@ borderimage
   color: yellow;
 }
 
-.no-mod-scriptasync,
-.no-mod-mediaqueries {
+.mod-no-scriptasync,
+.mod-no-mediaqueries {
   height: 1px;
 }
 
-.geolocation.mod-transforms3d {
+.geolocation.mod-csstransforms3d {
   color: green;
 }
 
-.no-mod-gamepads.borderimage {
+.mod-no-gamepads.borderimage {
   color: yellow;
 }

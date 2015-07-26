@@ -4,21 +4,25 @@ var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
 
 var coreFeatures = [
-  'textshadow',
-  'boxsizing',
+  'csstransitions',
   'history',
-  'hsla',
-  'opacity',
-  'canvastext',
+  'cssgradients',
+  'touchevents',
+  'geolocation',
+  'webgl',
+  'flexbox',
+  'borderimage',
 ];
 
 var nonCoreFeatures = [
-  'pointerevents',
-  'emoji',
-  'battery',
-  'cssmask',
-  'boxsizing',
-  'inputtypes.time',
+  'filesystem',
+  'cors',
+  'objectfit',
+  'datauri',
+  'json',
+  'quotamanagement',
+  'dataworkers',
+  'userdata',
 ];
 
 var prefixedFeatures = [
@@ -26,7 +30,7 @@ var prefixedFeatures = [
   'history',
   'scriptasync',
   'mediaqueries',
-  'transforms3d',
+  'csstransforms3d',
   'gamepads',
 ];
 
@@ -51,8 +55,11 @@ describe('Acceptance - Should detect tests (CSS)', function() {
   });
 
   it('should detect prefixed features', function() {
-    // Should not find someotherthing, geolocation, and borderimage
-    shouldDetect('should-detect/css/prefixed-detects.css', prefixedFeatures);
+    shouldDetect('should-detect/css/prefixed-detects.css', prefixedFeatures, {
+      extensibility: {
+        cssclassprefix: 'mod',
+      }
+    });
   });
 
 

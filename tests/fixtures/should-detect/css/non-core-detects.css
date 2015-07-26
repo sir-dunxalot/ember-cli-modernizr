@@ -3,9 +3,9 @@ Should return true for the following:
 
 filesystem
 cors
-contentsecuritypolicy
-object-fit
+objectfit
 datauri
+userdata
 json
 quotamanagement
 dataworkers
@@ -19,11 +19,7 @@ dataworkers
   color: yellow;
 }
 
-.no-contentsecuritypolicy {
-  height: 1px;
-}
-
-.no-object-fit {
+.json.no-objectfit {
   width: 0;
 }
 

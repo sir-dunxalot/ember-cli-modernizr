@@ -4,7 +4,7 @@ Should return true for the following:
 csstransitions
 history
 cssgradients
-touch
+touchevents
 geolocation
 webgl
 flexbox
@@ -20,7 +20,7 @@ borderimage
 }
 
 .no-cssgradients,
-.no-touch {
+.no-touchevents {
   height: 1px;
 }
 
