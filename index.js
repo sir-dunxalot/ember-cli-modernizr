@@ -1,3 +1,4 @@
+var createCssMap = require('./lib/create-css-map');
 var defaultFor = require('./lib/utils/default-for');
 var defaultOptions = require('./lib/default-options');
 var filterFiles = require('./lib/filter-files');
@@ -37,4 +38,5 @@ module.exports = {
   postprocessTree: function(type, workingTree) {
     return filterFiles(workingTree, this.options);
   },
+
 };

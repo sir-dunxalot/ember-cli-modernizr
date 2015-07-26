@@ -11,7 +11,7 @@ canvastext
 (function() {
 
   var something = {
-    mediaqueries: Modernizr.textshadow,
+    mediaqueries: Modernizr['textshadow'],
     somethingElse: Modernizr.opacity,
 
     video: function() {
@@ -26,7 +26,7 @@ canvastext
       someProp: Modernizr.opacity,
 
       canDoHistory: Ember.observer('rgba', function() {
-        return Modernizr.history && this.get('rgba');
+        return Modernizr['history'] && this.get('rgba');
       }),
 
       someEvent: function() {
