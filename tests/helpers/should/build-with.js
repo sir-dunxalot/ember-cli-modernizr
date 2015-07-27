@@ -1,6 +1,7 @@
 var assertFileContains = require('../assert/file-contains');
 var assertFileDoesNotExist = require('../assert/file-does-not-exist');
 var assertFileExists = require('../assert/file-exists');
+var defaultConfig = require('../../../lib/default-config');
 
 /**
 Assert that the Modernizr file is built and contains the specified assertions. If no assertions are passed it will check the file does not exists (i.e. Modernizr found no references).
@@ -10,22 +11,40 @@ Assert that the Modernizr file is built and contains the specified assertions. I
 @param {Array} expectedDetections An array of detections to find in the Modernizr build. Pass false, [], or no param to assert the file does not exist
 */
 
-function buildWith(directory, expectedDetections) {
-  var outputPath = 'path-to-modernizr.js'; // TODO
+function buildWith(directory, expectedContent) {
+  var outputPath = '/' + defaultConfig.outputDir + '/' + defaultConfig.outputFileName + '.js'; // TODO
+  var featureDetects, options;
 
-  if (expectedDetections && expectedDetections.length) {
+  if (expectedContent) {
+    featureDetects = expectedContent.featureDetects;
+    options = expectedContent.options;
 
     assertFileExists(directory, outputPath,
       'The custom Modernizr file should be built');
 
-    expectedDetections.forEach(function(methodName) {
-      assertFileContains({
-        directory: directory,
-        assetPath: outputPath,
-        content: 'Modernizr.' + methodName + ' = ', // TODO
-        message: 'The built Modernizr file should contain Modernizr.' + methodName
+    if (featureDetects) {
+      featureDetects.forEach(function(featureName) {
+        var expectedTest = 'Modernizr.addTest[(]\'' + featureName;
+
+        assertFileContains({
+          directory: directory,
+          assetPath: outputPath,
+          content: expectedTest,
+          message: 'The built Modernizr file should contain ' + expectedContent,
+        });
       });
-    });
+    } else if (options) {
+      options.forEach(function(option) {
+        var expectedCode = 'ModernizrProto.' + option;
+
+        assertFileContains({
+          directory: directory,
+          assetPath: outputPath,
+          content: expectedCode,
+          message: 'The built Modernizr file should contain ' + expectedCode,
+        });
+      });
+    }
   } else {
     assertFileDoesNotExist(directory, outputPath);
   }

@@ -14,9 +14,10 @@ somewhere within it using Chai-fs
 */
 
 module.exports = function(options) {
+  var content = options.content;
+  var regex = new RegExp(content);
   var path = options.directory + options.assetPath;
-  var regex = new RegExp(options.content);
-  var message = options.message || 'File should contain specified content';
+  var message = options.message || 'File should contain ' + content;
 
   chai.assert.fileContentMatch(path, regex, message);
 }

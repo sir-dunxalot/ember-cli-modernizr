@@ -87,15 +87,17 @@ describe('Acceptance - Options', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/extensibility'
     }).then(function(results) {
-      shouldBuildWith(results.directory, [
-        'addTest',
-        '_domPrefixes',
-        'hasEvent',
-        '_prefixes',
-        'testAllProps',
-        'testProp',
-        'testStyles',
-      ]);
+      shouldBuildWith(results.directory, {
+        options: [
+          // 'addTest', // Done differently
+          '_domPrefixes',
+          'hasEvent',
+          '_prefixes',
+          'testAllProps',
+          'testProp',
+          'testStyles',
+        ]
+      });
     });
   });
 });

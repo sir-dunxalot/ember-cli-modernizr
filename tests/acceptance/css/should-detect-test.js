@@ -69,18 +69,36 @@ describe('Acceptance - Should detect tests (CSS)', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-detect/css'
     }).then(function(results) {
-      shouldBuildWith(results.directory, coreFeatures.join(nonCoreFeatures));
+      shouldBuildWith(results.directory, {
+        featureDetects: [
+          'csstransitions',
+          'history',
+          'cssgradients',
+          'touchevents',
+          'geolocation',
+          'webgl',
+          'flexbox',
+          'borderimage',
+        ]
+      });
     });
   });
 
   it('should build a Modernizr file with prefixed CSS detections', function() {
     return emberCliModernizr.buildWithOptions({
+      classPrefix: 'mod',
       tree: 'tests/fixtures/should-detect/css',
-      extensibility: {
-        cssclassprefix: 'mod',
-      }
     }).then(function(results) {
-      shouldBuildWith(results.directory, prefixedFeatures);
+      shouldBuildWith(results.directory, {
+        featureDetects: [
+          'csstransitions',
+          'history',
+          'scriptasync',
+          'mediaqueries',
+          'csstransforms3d',
+          'gamepads',
+        ]
+      });
     });
   });
 });
