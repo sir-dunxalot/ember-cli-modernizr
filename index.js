@@ -1,6 +1,8 @@
 var defaultFor = require('./lib/utils/default-for');
 var defaultConfig = require('./lib/default-config');
+var developmentConfig = require('./lib/config-all');
 var filterFiles = require('./lib/filter-files');
+var fs = require('fs');
 var merge = require('deepmerge');
 var mergeTrees = require('broccoli-merge-trees');
 var modernizr = require('modernizr');
@@ -10,13 +12,13 @@ var modernizr = require('modernizr');
 
 module.exports = {
   name: 'ember-cli-modernizr',
-  inDevelopment: false,
   modernizrConfig: null,
+  shouldParseFiles: null,
 
   contentFor: function(type) {
     var modernizrConfig, outputDir, outputFileName;
 
-    if (type === 'body-footer') {
+    if (type === 'body-footer' && this.shouldParseFiles) {
       modernizrConfig = this.modernizrConfig;
       outputDir = modernizrConfig.outputDir;
       outputFileName = modernizrConfig.outputFileName;
@@ -27,9 +29,10 @@ module.exports = {
 
   included: function(app) {
     var environment = app.env;
-    var inDevelopment = environment === 'development';
+    var inProduction = environment === 'production';
     var passedOptions = defaultFor(app.options.modernizr, {});
-    var developmentPath;
+
+    this.shouldParseFiles = defaultConfig.shouldParseFiles || inProduction;
 
     /* Set outputPaths for use writing file */
 
@@ -39,24 +42,15 @@ module.exports = {
 
     this.modernizrConfig = merge(defaultConfig, passedOptions);
 
-    if (inDevelopment) {
-      developmentPath = defaultFor(
-        passedOptions.developmentPath,
-        app.bowerDirectory + '/modernizr/modernizr.js'
-      );
-
-      // app.import(developmentPath); // TODO
-    } else {
-
+    if (!this.shouldParseFiles) {
+      app.import('vendor/modernizr-development.js');
     }
-
-    this.inDevelopment = inDevelopment;
   },
 
   postprocessTree: function(type, tree) {
     var filteredTree;
 
-    if (type === 'all') {
+    if (type === 'all' && this.shouldParseFiles) {
       modernizrTree = filterFiles(tree, this.modernizrConfig);
 
       return mergeTrees([tree, modernizrTree], {
