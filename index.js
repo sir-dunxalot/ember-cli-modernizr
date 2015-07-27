@@ -32,8 +32,6 @@ module.exports = {
     var inProduction = environment === 'production';
     var passedOptions = defaultFor(app.options.modernizr, {});
 
-    this.shouldParseFiles = defaultConfig.shouldParseFiles || inProduction;
-
     /* Set outputPaths for use writing file */
 
     defaultConfig.appOutputPaths = app.options.outputPaths;
@@ -41,6 +39,7 @@ module.exports = {
     /* Merge default options with user-specified options */
 
     this.modernizrConfig = merge(defaultConfig, passedOptions);
+    this.shouldParseFiles = this.modernizrConfig.shouldParseFiles || inProduction;
 
     if (!this.shouldParseFiles) {
       app.import('vendor/modernizr-development.js');

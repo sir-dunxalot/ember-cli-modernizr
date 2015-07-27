@@ -35,7 +35,8 @@ module.exports = {
   */
 
   buildWithOptions: function(options, environment) {
-    this.resetDefaultOptions();
+    options.shouldParseFiles = true; // For tests
+
     this.setOptions(options, environment);
 
     /* By default, we want all the fixtures */
