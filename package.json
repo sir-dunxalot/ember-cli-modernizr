@@ -41,13 +41,13 @@
     "ember-try": "0.0.4",
     "glob": "^5.0.7",
     "mocha": "^2.2.5",
-    "modernizr": "modernizr/modernizr#master"
   },
   "keywords": [
     "ember-addon",
     "ember",
     "ember-cli",
     "modernizr",
+    "feature",
     "detection",
     "html5",
     "css3"
@@ -58,7 +58,7 @@
     "broccoli-sourcemap-concat": "^1.0.1",
     "deepmerge": "^0.2.10",
     "mkdirp": "^0.5.1",
-    "modernizr": "^3.0.0-alpha.4",
+    "modernizr": "modernizr/modernizr#master",
     "strip-comments": "^0.3.2",
     "walk-sync": "^0.1.3"
   },

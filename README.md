@@ -1,4 +1,5 @@
-# Ember-cli-modernizr
+Ember CLI Modernizr [![Build Status](https://travis-ci.org/sir-dunxalot/ember-cli-modernizr.svg?branch=master)](https://travis-ci.org/sir-dunxalot/ember-cli-modernizr)
+======
 
 **Early stage addon - [looking for help](#todos)**
 
