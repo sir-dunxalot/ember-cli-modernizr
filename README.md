@@ -33,8 +33,17 @@ var app = new EmberApp({
     outputFileName: 'ember-cli-modernizr',
     shouldParseFiles: false,
 
+    /* If you use a class prefix (e.g. .mod-csstransitions
+    instead of .csstransitions) */
+
     classPrefix: '',
+
+    /* Add feature AMD paths (see lib/config-all.json)
+    if you want a feature regardless of file parsing */
+
     'feature-detects': [],
+
+    /* Set options for Modernizr extensions here */
 
     options: {
       addTest: false,
@@ -48,7 +57,7 @@ var app = new EmberApp({
       prefixed: false,
       prefixes: false,
       prefixedCSS: false,
-      setClasses: true,
+      setClasses: true, // Adds classes to <html>
       testAllProps: false,
       testProp: false,
       testStyles: false
