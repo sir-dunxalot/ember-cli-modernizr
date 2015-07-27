@@ -4,11 +4,11 @@ var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
 
 var coreFeatures = [
-  'textshadow',
-  'boxsizing',
+  'css/textshadow',
+  'css/boxsizing',
   'history',
-  'hsla',
-  'opacity',
+  'css/hsla',
+  'css/opacity',
   'canvastext',
 ];
 
@@ -16,8 +16,8 @@ var nonCoreFeatures = [
   'pointerevents',
   'emoji',
   'battery',
-  'cssmask',
-  'boxsizing',
+  'css/mask',
+  'css/boxsizing',
   'inputtypes',
 ];
 
@@ -34,11 +34,15 @@ describe('Acceptance - Should detect features (JS)', function() {
   });
 
   it('should detect core features', function() {
-    shouldDetect('should-detect/js/core-detects.js', coreFeatures);
+    shouldDetect('should-detect/js/core-detects.js', {
+      featureDetects: coreFeatures
+    });
   });
 
   it('should detect non-core features', function() {
-    shouldDetect('should-detect/js/non-core-detects.js', nonCoreFeatures);
+    shouldDetect('should-detect/js/non-core-detects.js', {
+      featureDetects: nonCoreFeatures
+    });
   });
 
   it('should build a Modernizr file with the correct extras', function() {

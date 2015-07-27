@@ -26,12 +26,12 @@ var nonCoreFeatures = [
 ];
 
 var prefixedFeatures = [
-  'csstransitions',
+  'css/transitions',
   'history',
-  'scriptasync',
-  'mediaqueries',
-  'csstransforms3d',
-  'gamepads',
+  'script/async',
+  'css/mediaqueries',
+  'css/transforms3d',
+  'gamepad',
 ];
 
 describe('Acceptance - Should detect tests (CSS)', function() {
@@ -47,18 +47,21 @@ describe('Acceptance - Should detect tests (CSS)', function() {
   });
 
   it('should detect core features', function() {
-    shouldDetect('should-detect/css/core-detects.css', coreFeatures);
+    shouldDetect('should-detect/css/core-detects.css', {
+      featureDetects: coreFeatures
+    });
   });
 
   it('should detect non-core features', function() {
-    shouldDetect('should-detect/css/non-core-detects.css', nonCoreFeatures);
+    shouldDetect('should-detect/css/non-core-detects.css', {
+      featureDetects: nonCoreFeatures
+    });
   });
 
   it('should detect prefixed features', function() {
     shouldDetect('should-detect/css/prefixed-detects.css', prefixedFeatures, {
-      extensibility: {
-        cssclassprefix: 'mod',
-      }
+      classPrefix: 'mod',
+      featureDetects:  prefixedFeatures,
     });
   });
 

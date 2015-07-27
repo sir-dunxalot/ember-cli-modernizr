@@ -16,15 +16,21 @@ describe('Acceptance - Should not detect features (JS)', function() {
   });
 
   it('should not detect features in comments', function() {
-    shouldDetect('should-not-detect/js/comments.js', []);
+    shouldDetect('should-not-detect/js/comments.js', {
+      featureDetects: []
+    });
   });
 
   it('should not detect features as method names', function() {
-    shouldDetect('should-not-detect/js/methods.js', []);
+    shouldDetect('should-not-detect/js/methods.js', {
+      featureDetects: []
+    });
   });
 
   it('should detect features as property names or values', function() {
-    shouldDetect('should-not-detect/js/properties.js', []);
+    shouldDetect('should-not-detect/js/properties.js', {
+      featureDetects: []
+    });
   });
 
   it('should not build a Modernizr file when there are no detects', function() {

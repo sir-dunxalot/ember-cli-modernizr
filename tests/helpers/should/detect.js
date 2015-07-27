@@ -6,17 +6,13 @@ function shouldDetect(fixturePath, expectedConfig, modernizrConfig) {
   var actualConfig = parseFixture(fixturePath, modernizrConfig) || [];
   var actualFeatureDetects = actualConfig['feature-detects'];
   var actualOptionDetects = actualConfig.options;
-
   var expectedFeatureDetectsLength;
   var expectedOptionDetectsLength;
 
-  if (typeof expectedConfig === 'object') {
-    expectedConfig = {
-      'feature-detects': expectedConfig,
-      options: [],
-    }
-  }
-
+  expectedConfig = {
+    'feature-detects': expectedConfig.featureDetects || [],
+    options: expectedConfig.options || [],
+  };
 
   expectedFeatureDetectsLength = expectedConfig['feature-detects'].length;
   expectedOptionDetectsLength = expectedConfig.options.length;
