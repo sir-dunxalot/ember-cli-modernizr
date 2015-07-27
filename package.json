@@ -55,6 +55,7 @@
   "dependencies": {
     "broccoli-caching-writer": "^0.6.1",
     "broccoli-filter": "^0.1.14",
+    "broccoli-merge-trees": "^0.2.2",
     "broccoli-sourcemap-concat": "^1.0.1",
     "deepmerge": "^0.2.10",
     "mkdirp": "^0.5.1",
