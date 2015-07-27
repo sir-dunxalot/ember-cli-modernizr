@@ -83,7 +83,7 @@ describe('Acceptance - Options', function() {
     });
   });
 
-  it('should build a Modernizr file with the correct extensibility detections', function() {
+  it('should build a Modernizr file with the correct options', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/extensibility'
     }).then(function(results) {

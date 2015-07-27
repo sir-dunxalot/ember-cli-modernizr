@@ -24,7 +24,13 @@ function buildWith(directory, expectedContent) {
 
     if (featureDetects) {
       featureDetects.forEach(function(featureName) {
-        var expectedTest = 'Modernizr.addTest[(]\'' + featureName;
+        var expectedTest;
+
+        if (featureName === 'inputtypes'){
+          expectedTest = 'Modernizr[\'' + featureDetects + '\']';
+        } else {
+          expectedTest = 'Modernizr.addTest[(]\'' + featureName;
+        }
 
         assertFileContains({
           directory: directory,

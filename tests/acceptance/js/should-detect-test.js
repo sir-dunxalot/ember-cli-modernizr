@@ -50,7 +50,19 @@ describe('Acceptance - Should detect features (JS)', function() {
       tree: 'tests/fixtures/should-detect/js'
     }).then(function(results) {
       shouldBuildWith(results.directory, {
-        featureDetects: coreFeatures.join(nonCoreFeatures),
+        featureDetects: [
+          'textshadow',
+          'boxsizing',
+          'history',
+          'hsla',
+          'opacity',
+          'canvastext',
+          'pointerevents',
+          'emoji',
+          'battery',
+          'cssmask',
+          'inputtypes',
+        ],
       });
     });
   });
