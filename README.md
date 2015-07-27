@@ -59,11 +59,6 @@ var app = new EmberApp({
 module.exports = app.toTree();
 ```
 
-## Customization
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
 ## TODOs
 
 Would love help with these:
@@ -80,5 +75,6 @@ If you have an issue or feature request please [open an issue](https://github.co
 
 The test suite can be ran as follows:
 
-- `ember test`
-- `ember test --server`
+```
+npm test
+```
