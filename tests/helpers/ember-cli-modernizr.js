@@ -97,7 +97,7 @@ module.exports = {
     emberCliModernizr.included({
       env: environment,
       options: {
-        emberCliConcat: options
+        modernizr: options
       }
     });
   },

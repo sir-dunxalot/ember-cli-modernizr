@@ -49,7 +49,9 @@ describe('Acceptance - Should detect features (JS)', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-detect/js'
     }).then(function(results) {
-      shouldBuildWith(results.directory, coreFeatures.join(nonCoreFeatures));
+      shouldBuildWith(results.directory, {
+        featureDetects: coreFeatures.join(nonCoreFeatures),
+      });
     });
   });
 

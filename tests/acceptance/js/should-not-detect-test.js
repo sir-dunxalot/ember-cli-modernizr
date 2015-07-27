@@ -37,7 +37,7 @@ describe('Acceptance - Should not detect features (JS)', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-not-detect/js'
     }).then(function(results) {
-      shouldBuildWith(results.directory, []);
+      shouldBuildWith(results.directory);
     });
   });
 

@@ -23,7 +23,7 @@ describe('Acceptance - Should not detect features (CSS)', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-not-detect/css'
     }).then(function(results) {
-      shouldBuildWith(results.directory, []);
+      shouldBuildWith(results.directory);
     });
   });
 
