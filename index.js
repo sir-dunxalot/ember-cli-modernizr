@@ -1,5 +1,5 @@
 var defaultFor = require('./lib/utils/default-for');
-var defaultOptions = require('./lib/default-options');
+var defaultConfig = require('./lib/default-config');
 var filterFiles = require('./lib/filter-files');
 var merge = require('deepmerge');
 var mergeTrees = require('broccoli-merge-trees');
@@ -33,11 +33,11 @@ module.exports = {
 
     /* Set outputPaths for use writing file */
 
-    defaultOptions.appOutputPaths = app.options.outputPaths;
+    defaultConfig.appOutputPaths = app.options.outputPaths;
 
     /* Merge default options with user-specified options */
 
-    this.modernizrConfig = merge(defaultOptions, passedOptions);
+    this.modernizrConfig = merge(defaultConfig, passedOptions);
 
     if (inDevelopment) {
       developmentPath = defaultFor(

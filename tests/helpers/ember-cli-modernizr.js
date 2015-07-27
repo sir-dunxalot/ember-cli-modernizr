@@ -1,6 +1,6 @@
 var broccoli = require('broccoli');
 var defaultFor = require('../../lib/utils/default-for');
-var defaultOptions = require('../../lib/default-options');
+var defaultConfig = require('../../lib/default-config');
 var emberCliModernizr = require('../..'); // index.js
 
 /**
@@ -77,7 +77,7 @@ module.exports = {
   */
 
   resetDefaultOptions: function() {
-    this.setOptions(defaultOptions);
+    this.setOptions(defaultConfig);
   },
 
   /**

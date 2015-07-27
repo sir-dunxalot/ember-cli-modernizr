@@ -2,19 +2,49 @@ var chai = require('chai');
 var parseFixture = require('../parse-fixture');
 var assert = chai.assert;
 
-function shouldDetect(fixturePath, expectedDetections, options) {
-  var detections = parseFixture(fixturePath, options) || [];
-  var expectedDetectionsLength = expectedDetections.length;
+function shouldDetect(fixturePath, expectedConfig, modernizrConfig) {
+  var actualConfig = parseFixture(fixturePath, modernizrConfig) || [];
+  var actualFeatureDetects = actualConfig['feature-detects'];
+  var actualOptionDetects = actualConfig.options;
 
-  expectedDetections.forEach(function(feature) {
+  var expectedFeatureDetectsLength;
+  var expectedOptionDetectsLength;
 
-    assert.include(detections, feature,
-      'Should detect the ' + feature + ' feature');
+  if (typeof expectedConfig === 'object') {
+    expectedConfig = {
+      'feature-detects': expectedConfig,
+      options: [],
+    }
+  }
+
+
+  expectedFeatureDetectsLength = expectedConfig['feature-detects'].length;
+  expectedOptionDetectsLength = expectedConfig.options.length;
+
+  expectedConfig['feature-detects'] = expectedConfig['feature-detects'].map(function(featureDetect) {
+    return 'test/' + featureDetect;
+  });
+
+  expectedConfig['feature-detects'].forEach(function(featureDetect) {
+
+    assert.include(actualFeatureDetects, featureDetect,
+      'Should detect the ' + featureDetect + ' feature');
 
   });
 
-  assert.strictEqual(detections.length, expectedDetectionsLength,
-    'Should detect ' + expectedDetectionsLength + 'features');
+  expectedConfig.options.forEach(function(option) {
+
+    assert.include(actualOptionDetects, option,
+      'Should detect the ' + option + ' option');
+
+  });
+
+  assert.strictEqual(expectedFeatureDetectsLength, expectedConfig['feature-detects'].length,
+    'Should detect ' + expectedFeatureDetectsLength + 'features');
+
+  assert.strictEqual(expectedOptionDetectsLength, expectedConfig.options.length,
+    'Should detect ' + expectedOptionDetectsLength + 'options');
+
 }
 
 module.exports = shouldDetect;

@@ -4,24 +4,24 @@ var shouldDetect = require('../../helpers/should/detect');
 var root = process.cwd();
 
 var coreFeatures = [
-  'csstransitions',
+  'css/transitions',
   'history',
-  'cssgradients',
+  'css/gradients',
   'touchevents',
   'geolocation',
   'webgl',
-  'flexbox',
-  'borderimage',
+  'css/flexbox',
+  'css/borderimage',
 ];
 
 var nonCoreFeatures = [
-  'filesystem',
+  'file/filesystem',
   'cors',
-  'objectfit',
-  'datauri',
+  'css/objectfit',
+  'url/data-uri',
   'json',
-  'quotamanagement',
-  'dataworkers',
+  'quota-management-api',
+  'workers/dataworkers',
   'userdata',
 ];
 

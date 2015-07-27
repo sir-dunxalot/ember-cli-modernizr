@@ -1,11 +1,23 @@
-var FilterFiles = require('../../lib/filter-files');
+var ModernizrFilter = require('../../lib/filter-files');
+var defaultConfig = require('../../lib/default-config');
+var merge = require('deepmerge');
 var readFixture = require('./read-fixture');
 
-function parseFixture(fixturePath, options) {
+function parseFixture(fixturePath, modernizrConfig) {
   var content = readFixture(fixturePath);
-  var ModernizrFilter = new FilterFiles({}, options || {});
+  var testConfig = defaultConfig;
+  var config, modernizrFilter, requiredConfig;
 
-  return ModernizrFilter.processString(content, fixturePath);
+  testConfig['feature-detects'] = [];
+  testConfig.options.setClasses = false;
+
+  config = merge(testConfig, modernizrConfig || {});
+  modernizrFilter = new ModernizrFilter({}, config);
+  requiredConfig = modernizrFilter.parseForReferences(fixturePath, content);
+
+  // console.log(requiredConfig);
+
+  return requiredConfig;
 }
 
 module.exports = parseFixture;
