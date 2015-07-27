@@ -34,15 +34,18 @@ module.exports = {
   @method buildWithOptions
   */
 
-  buildWithOptions: function(options, environment) {
-    options.shouldParseFiles = true; // For tests
+  buildWithOptions: function(modernizrConfig, environment) {
 
-    this.setOptions(options, environment);
+    if (typeof modernizrConfig.shouldParseFiles !== 'boolean') {
+      modernizrConfig.shouldParseFiles = true;
+    }
+
+    this.setOptions(modernizrConfig, environment);
 
     /* By default, we want all the fixtures */
 
-    if (options && options.tree) {
-      this.currentFixturesTree = options.tree;
+    if (modernizrConfig && modernizrConfig.tree) {
+      this.currentFixturesTree = modernizrConfig.tree;
     } else {
       this.currentFixturesTree = 'tests/fixtures';
     }
@@ -97,9 +100,14 @@ module.exports = {
 
     emberCliModernizr.included({
       env: environment,
+
       options: {
         modernizr: options
-      }
+      },
+
+      import: function() {
+
+      },
     });
   },
 }

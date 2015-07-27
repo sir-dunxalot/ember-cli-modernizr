@@ -16,68 +16,68 @@ describe('Acceptance - Options', function() {
   });
 
   it('should detect multiple Modernizr.addTest methods', function() {
-    shouldDetect('extensibility/add-test-multiple.js', {
+    shouldDetect('should-detect/js/options/add-test-multiple.js', {
       options: ['addTest']
     });
   });
 
   it('should detect a single Modernizr.addTest method', function() {
-    shouldDetect('extensibility/add-test-single.js', {
+    shouldDetect('should-detect/js/options/add-test-single.js', {
       options: ['addTest']
     });
   });
 
   it('should detect the Modernizr._domPrefixes API', function() {
-    shouldDetect('extensibility/dom-prefixes.js', {
+    shouldDetect('should-detect/js/options/dom-prefixes.js', {
       options: ['domPrefixes']
     });
   });
 
   it('should detect the Modernizr.hasEvent API', function() {
-    shouldDetect('extensibility/has-event.js', {
+    shouldDetect('should-detect/js/options/has-event.js', {
       options: ['hasEvent']
     });
   });
 
   it('should detect the Modernizr._prefixes API', function() {
-    shouldDetect('extensibility/prefixes.js', {
+    shouldDetect('should-detect/js/options/prefixes.js', {
       options: ['prefixes']
     });
   });
 
   it('should detect the Modernizr.testAllProps API', function() {
-    shouldDetect('extensibility/test-all-props.js', {
+    shouldDetect('should-detect/js/options/test-all-props.js', {
       options: ['testAllProps']
     });
   });
 
   it('should detect the Modernizr.testProp API', function() {
-    shouldDetect('extensibility/test-prop.js', {
+    shouldDetect('should-detect/js/options/test-prop.js', {
       options: ['testProp']
     });
   });
 
   it('should detect the Modernizr.testStyles API', function() {
-    shouldDetect('extensibility/test-styles.js', {
+    shouldDetect('should-detect/js/options/test-styles.js', {
       options: ['testStyles']
     });
   });
 
   it('should detect the Modernizr.mq API', function() {
-    shouldDetect('extras/media-queries.js', {
+    shouldDetect('should-detect/js/options/media-queries.js', {
       options: ['mq']
     });
   });
 
   it('should detect a core Modernizr.load call', function() {
-    shouldDetect('extras/core-load.js', {
+    shouldDetect('should-detect/js/options/core-load.js', {
       featureDetects: ['geolocation', 'css/transitions'],
       options: ['load']
     });
   });
 
   it('should detect a non-core Modernizr.load call', function() {
-    shouldDetect('extras/non-core-load.js', {
+    shouldDetect('should-detect/js/options/non-core-load.js', {
       featureDetects: ['cors', 'css/vhunit'],
       options: ['load']
     });
@@ -85,7 +85,7 @@ describe('Acceptance - Options', function() {
 
   it('should build a Modernizr file with the correct options', function() {
     return emberCliModernizr.buildWithOptions({
-      tree: 'tests/fixtures/extensibility'
+      tree: 'tests/fixtures/should-detect/js/options'
     }).then(function(results) {
       shouldBuildWith(results.directory, {
         options: [
