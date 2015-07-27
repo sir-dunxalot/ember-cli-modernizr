@@ -61,7 +61,7 @@ module.exports = app.toTree();
 
 ## TODOs
 
-Would love help with these:
+I would love help with the following requirements:
 
 - Automatically add `assets/ember-cli-modernizr.js` to `assets/vendor.js` instead of creating another HTTP request
 - Minify the `assets/ember-cli-modernizr.js` output
