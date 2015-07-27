@@ -1,4 +1,3 @@
-var fs = require('fs');
 var chai = require('chai');
 
 /**
@@ -19,8 +18,6 @@ module.exports = function(options) {
   var regex = new RegExp(content);
   var path = options.directory + options.assetPath;
   var message = options.message || 'File should contain ' + content;
-
-  // console.log(fs.readFileSync(path, { encoding: 'utf8' }));
 
   chai.assert.fileContentMatch(path, regex, message);
 }

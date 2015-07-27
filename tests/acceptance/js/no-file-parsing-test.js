@@ -15,16 +15,12 @@ describe('Acceptance - shouldParseFiles', function() {
     }
   });
 
-  it('should not build a Modernizr file when shouldParseFiles if false', function() {
+  it('should not build a Modernizr file when shouldParseFiles is false', function() {
     return emberCliModernizr.buildWithOptions({
       tree: 'tests/fixtures/should-detect/js',
-      modernizr: {
-        shouldParseFiles: false
-      }
+      shouldParseFiles: false
     }).then(function(results) {
       shouldBuildWith(results.directory);
-
-      // Check index.html link doesn't exist
     });
   });
 });
