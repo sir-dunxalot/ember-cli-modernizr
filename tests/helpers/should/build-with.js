@@ -41,7 +41,13 @@ function buildWith(directory, expectedContent) {
       });
     } else if (options) {
       options.forEach(function(option) {
-        var expectedCode = 'ModernizrProto.' + option;
+        var expectedCode;
+
+        if (option === 'addTest') {
+          expectedCode = option + ':';
+        } else {
+          expectedCode = 'ModernizrProto.' + option;
+        }
 
         assertFileContains({
           directory: directory,

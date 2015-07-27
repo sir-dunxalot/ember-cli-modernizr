@@ -89,7 +89,7 @@ describe('Acceptance - Options', function() {
     }).then(function(results) {
       shouldBuildWith(results.directory, {
         options: [
-          // 'addTest', // Done differently
+          'addTest',
           '_domPrefixes',
           'hasEvent',
           '_prefixes',
